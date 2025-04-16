@@ -1,0 +1,53 @@
+// Breakpoints
+
+
+$screen-xs: 395px;
+
+$screen-sm: 576px;
+
+$screen-md: 767px;
+
+$screen-lg: 991.98px;
+
+$screen-ml: 1024px;
+
+$screen-xl: 1200px;
+
+
+// Mixins
+
+@mixin x-small {
+  @media (max-width: #{$screen-xs}) {
+    @content;
+  }
+}
+
+@mixin small {
+  @media (max-width: #{$screen-sm}) {
+    @content;
+  }
+}
+
+@mixin medium {
+  @media (max-width: #{$screen-md}) {
+    @content;
+  }
+}
+
+@mixin large {
+  @media (max-width: #{$screen-lg}) {
+    @content;
+  }
+}
+
+@mixin m-large {
+  @media (max-width: #{$screen-ml}) {
+    @content;
+  }
+}
+
+@mixin xl-large {
+  @media (max-width: #{$screen-xl}) {
+    @content;
+  }
+}

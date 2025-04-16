@@ -1,0 +1,153 @@
+@use 'base/colors'as color;
+@use 'utils/utilities'as utilities;
+@use 'base/breakpoints'as breakpoints;
+
+.navbar {
+  width: 100%;
+  height: auto;
+  min-height: 80px;
+  padding: 0 32px;
+  background-color: color.$color-basic-white;
+  border-bottom: 1px solid color.$color-brand-orange;
+  @include utilities.flexbox-param(flex, center, center);
+
+  @include breakpoints.m-large {
+    padding: 0 16px;
+  }
+
+  &__container {
+    gap: 4px;
+    width: 100%;
+    height: auto;
+    max-width: 1440px;
+    @include utilities.flexbox-param(flex, center, space-between);
+  }
+
+  &__logo {
+    width: auto;
+    height: auto;
+    @include utilities.flexbox-param(flex, center, space-between);
+
+    img {
+      width: 144.7px;
+      height: auto;
+    }
+  }
+
+  &__items {
+    width: 55%;
+    height: auto;
+    @include utilities.flexbox-param(flex, center, space-between);
+
+    @include breakpoints.m-large {
+      width: 65%;
+    }
+
+    @include breakpoints.large {
+      width: 60%;
+    }
+
+    @include breakpoints.medium {
+      display: none;
+    }
+
+  }
+
+  &__actions {
+    width: auto;
+    height: auto;
+
+    .navbar__reserve {
+      display: block;
+
+      @include breakpoints.medium {
+        display: none;
+      }
+    }
+
+    .navbar__menu {
+      display: none;
+      cursor: pointer;
+      transition: 0.3s ease;
+
+      &:active {
+        transform: scale(0.95);
+      }
+
+      @include breakpoints.medium {
+        display: block;
+      }
+    }
+  }
+
+  &__mobile {
+    width: 100%;
+    height: auto;
+    top: 0;
+    bottom: 0;
+    z-index: 2;
+    display: none;
+    overflow: auto;
+    position: absolute;
+    transition: .4s ease;
+    animation-name: fadeInLeft;
+    transform: translate(-100%);
+    background-color: color.$color-basic-white;
+
+    @include breakpoints.medium {
+      display: block;
+    }
+
+    &--active {
+      transform: translate(0);
+    }
+
+    .navbar__header {
+      width: 100%;
+      height: auto;
+      padding: 16px;
+      min-height: 80px;
+      background-color: color.$color-secondary-050;
+      border-bottom: 1px solid color.$color-basic-050;
+      @include utilities.flexbox-param(flex, center, space-between);
+
+      .navbar__close {
+        cursor: pointer;
+        transition: 0.3s ease;
+
+        &:active {
+          transform: scale(0.95);
+        }
+      }
+
+    }
+
+    .navbar__main {
+      width: 100%;
+      height: calc(100% - 120px);
+      display: flex;
+      align-items: initial;
+      flex-direction: column;
+      justify-content: space-evenly;
+    }
+
+    .navbar__footer {
+      width: 100%;
+      height: 40px;
+      padding: 0 16px;
+      background-color: color.$color-basic-050;
+      border-top: 1px solid color.$color-basic-050;
+      @include utilities.flexbox-param(flex, center, center);
+
+      span {
+        width: auto;
+        height: auto;
+        text-align: center;
+        @include utilities.font-details(14px, 20px, 700, color.$color-brand-purple);
+      }
+    }
+
+  }
+
+
+}

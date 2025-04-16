@@ -1,0 +1,100 @@
+// Global Variables
+
+$color-brand-orange: #ff8f50;
+$color-brand-purple: #622f60;
+
+$color-basic-white-high-alpha: #FFFFFFB8;
+$color-basic-white-medium-alpha: #81778180;
+$color-basic-white: #FFFFFF;
+
+$color-basic-050: #81778180;
+$color-basic-100: #e0d9e0;
+$color-basic-200: #d1c7d1;
+$color-basic-300: #bfb0be;
+$color-basic-400: #a0989f;
+$color-basic-500: #817781;
+$color-basic-600: #635a63;
+$color-basic-700: #494149;
+$color-basic-800: #342e34;
+$color-basic-900: #2d242d;
+
+$color-primary-low-alpha: #622F6052;
+$color-primary-050: #f5eaf5;
+$color-primary-100: #e0c8df;
+$color-primary-200: #d9bad8;
+$color-primary-300: #c69ac4;
+$color-primary-400: #b677b3;
+$color-primary-500: #ac53a9;
+$color-primary-600: #864084;
+$color-primary-700: $color-brand-purple;
+$color-primary-800: #471f45;
+$color-primary-900: #2b132a;
+
+$color-secondary-050: #fbf6f4;
+$color-secondary-100: #f4e8e1;
+$color-secondary-200: #ffe1d1;
+$color-secondary-300: #ffbc99;
+$color-secondary-400: $color-brand-orange;
+$color-secondary-500: #d67843;
+$color-secondary-600: #b85c28;
+$color-secondary-700: #8a451e;
+$color-secondary-800: #4e250e;
+$color-secondary-900: #31190c;
+
+
+
+// Mapping colors to their respective variables
+
+$color-map: (
+  'color-brand-orange': $color-brand-orange,
+  'color-brand-purple': $color-brand-purple,
+  'color-basic-white-high-alpha': $color-basic-white-high-alpha,
+  'color-basic-white-medium-alpha': $color-basic-white-medium-alpha,
+  'color-basic-white': $color-basic-white,
+  'color-basic-050': $color-basic-050,
+  'color-basic-100': $color-basic-100,
+  'color-basic-200': $color-basic-200,
+  'color-basic-300': $color-basic-300,
+  'color-basic-400': $color-basic-400,
+  'color-basic-500': $color-basic-500,
+  'color-basic-600': $color-basic-600,
+  'color-basic-700': $color-basic-700,
+  'color-basic-800': $color-basic-800,
+  'color-basic-900': $color-basic-900,
+  'color-primary-low-alpha': $color-primary-low-alpha,
+  'color-primary-050': $color-primary-050,
+  'color-primary-100': $color-primary-100,
+  'color-primary-200': $color-primary-200,
+  'color-primary-300': $color-primary-300,
+  'color-primary-400': $color-primary-400,
+  'color-primary-500': $color-primary-500,
+  'color-primary-600': $color-primary-600,
+  'color-primary-700': $color-primary-700,
+  'color-primary-800': $color-primary-800,
+  'color-primary-900': $color-primary-900,
+  'color-secondary-050': $color-secondary-050,
+  'color-secondary-100': $color-secondary-100,
+  'color-secondary-200': $color-secondary-200,
+  'color-secondary-300': $color-secondary-300,
+  'color-secondary-400': $color-secondary-400,
+  'color-secondary-500': $color-secondary-500,
+  'color-secondary-600': $color-secondary-600,
+  'color-secondary-700': $color-secondary-700,
+  'color-secondary-800': $color-secondary-800,
+  'color-secondary-900': $color-secondary-900
+);
+
+
+// Generate CSS classes for each color
+@each $name, $value in $color-map {
+  .#{$name} {
+    color: $value;
+    stroke: $value;
+  }
+}
+
+
+
+
+
+

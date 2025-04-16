@@ -1,0 +1,29 @@
+@use '../base/variable' as variables;
+
+
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin truncate-lines($size) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $size;
+  overflow: hidden;
+}
+
+@mixin flexbox-param($display, $align, $justify) {
+  display: $display;
+  align-items: $align;
+  justify-content: $justify;
+}
+
+@mixin font-details($size, $line-h, $weight, $color, $font: variables.$typo-nunito) {
+  font-size: $size;
+  line-height: $line-h;
+  font-weight: $weight;
+  color: $color;
+  font-family: $font;
+}

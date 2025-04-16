@@ -1,4 +1,5 @@
-import { FooterComponent } from '../../components/shared/footer/footer.component';
+import { FooterComponent } from '../../components/ui-waveless/organisms/footer/footer.component';
 import { NavbarComponent } from '../../components/ui-waveless/organisms/navbar/navbar.component';
+import { HttpClientModule } from '@angular/common/http';
 
-export const HomePageImports = [NavbarComponent, FooterComponent];
+export const HomePageImports = [NavbarComponent, FooterComponent, HttpClientModule];

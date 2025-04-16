@@ -1,0 +1,8 @@
+<a class="tab" [routerLink]="route" routerLinkActive="active">
+  <ng-container *ngIf="iconName">
+    <app-icon class="tab__icon" [name]="iconName" [size]="iconSize" [color]="iconColor"></app-icon>
+  </ng-container>
+  <span class="tab__text">
+    {{ text }}
+  </span>
+</a>

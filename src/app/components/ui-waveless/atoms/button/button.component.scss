@@ -1,0 +1,87 @@
+@use 'base/colors'as color;
+@use 'utils/utilities'as utilities;
+@use 'base/breakpoints'as breakpoints;
+
+
+.button {
+  gap: 10px;
+  width: 139px;
+  height: 48px;
+  cursor: pointer;
+  padding: 12px 40px;
+  border-radius: 208px;
+  transition: 0.3s ease;
+  border: 1px solid transparent;
+  background-color: transparent;
+  @include utilities.flexbox-param(flex, center, center);
+  @include utilities.font-details(16px, 24px, 600, color.$color-basic-white);
+
+  &:active {
+    transform: scale(0.97);
+  }
+
+
+
+  &__label {
+    color: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+  }
+
+
+
+
+
+  &--disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+
+  // colors
+
+  &--primary {
+    color: color.$color-basic-white;
+    background-color: color.$color-brand-purple;
+
+    &:hover:not(.button--disabled) {
+      background-color: color.$color-primary-800;
+    }
+
+  }
+
+  &--secondary {
+    color: color.$color-basic-white;
+    background-color: color.$color-brand-orange;
+
+    &:hover:not(.button--disabled) {
+      background-color: #e97a34;
+    }
+  }
+
+  &--transparent {
+    background-color: transparent;
+    border: 1px solid #dcdcdc;
+    color: #494149;
+
+    &:hover:not(.button--disabled) {
+      background-color: rgba(0, 0, 0, 0.05);
+    }
+  }
+
+  // Size
+
+  &--sm {
+    font-size: 0.875rem; // ~14px
+    padding: 0.25rem 0.75rem;
+  }
+
+  &--base {
+    font-size: 1rem; // ~16px
+  }
+
+  &--lg {
+    font-size: 1.25rem; // ~20px
+    padding: 0.75rem 1.5rem;
+  }
+}

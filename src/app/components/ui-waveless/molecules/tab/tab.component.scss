@@ -1,0 +1,74 @@
+@use 'base/colors'as color;
+@use 'utils/utilities'as utilities;
+@use 'base/breakpoints'as breakpoints;
+
+.tab {
+  gap: 6px;
+  width: auto;
+  height: auto;
+  cursor: pointer;
+  min-height: 80px;
+  padding: 0 12px;
+  overflow: hidden;
+  position: relative;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  @include utilities.truncate-lines(1);
+  @include utilities.flexbox-param(flex, center, center);
+
+  @include breakpoints.m-large {
+    gap: 2px;
+    padding: 0 6px;
+  }
+
+  @include breakpoints.large {
+    padding: 0 2px;
+  }
+
+
+
+
+  &:hover {
+    cursor: pointer;
+    border-color: color.$color-brand-orange;
+  }
+
+  &.active {
+    border-color: color.$color-brand-orange;
+    background-color: color.$color-basic-white-high-alpha;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -12px;
+      left: 50%;
+      width: 30px;
+      height: 30px;
+      transform: translateX(-50%) rotate(180deg);
+      background: url('/assets/icons/triangle.svg') no-repeat center / contain;
+    }
+  }
+
+
+  .tab__icon {
+    width: auto;
+    height: auto;
+
+    @include breakpoints.m-large {
+      padding: 0;
+    }
+
+  }
+
+  .tab__text {
+    width: auto;
+    height: auto;
+    text-align: center;
+    @include utilities.font-details(16px, 20px, 700, color.$color-basic-800);
+
+    @include breakpoints.m-large {
+      font-weight: 600;
+    }
+
+  }
+}
