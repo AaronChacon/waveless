@@ -1,0 +1,88 @@
+@use 'base/colors' as color;
+@use 'utils/utilities' as utilities;
+@use 'base/breakpoints' as breakpoints;
+
+.slider {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  padding: 32px 16px;
+  position: relative;
+
+
+  &__slides {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__slide {
+    inset: 0;
+    opacity: 0;
+    z-index: 0;
+    position: absolute;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: opacity .4s ease;
+
+    &.active {
+      opacity: 1;
+    }
+  }
+
+  &__projection {
+    z-index: 1;
+    top: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    width: 100%;
+    height: -webkit-fill-available;
+    flex-direction: column;
+    @include utilities.flexbox-param(flex, center, center);
+  }
+
+
+  &__arrow {
+    top: 50%;
+    z-index: 3;
+    cursor: pointer;
+    position: absolute;
+    transform: translateY(-50%);
+
+    &--left {
+      left: 0;
+    }
+
+    &--right {
+      right: 0;
+    }
+
+  }
+
+
+  &__dots {
+    gap: 8px;
+    left: 50%;
+    z-index: 3;
+    bottom: 32px;
+    display: flex;
+    position: absolute;
+    transform: translateX(-50%);
+  }
+
+  &__dot {
+    width: 10px;
+    height: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background .4s ease;
+    border: 1px solid color.$color-basic-white;
+    background: color.$color-basic-white-high-alpha;
+
+
+    &.active {
+      background: color.$color-brand-orange;
+    }
+  }
+}

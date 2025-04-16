@@ -1,8 +1,10 @@
 <button [class]="classes.join(' ')" [disabled]="disabled">
-  <ng-container *ngIf="icon">
-    <app-icon class="button__icon" name="close" color="color-basic-800" [size]="24"></app-icon>
+  <ng-container *ngIf="icon && iconSize && iconColor">
+    <app-icon class="button__icon" [name]="icon" [color]="iconColor" [size]="iconSize"></app-icon>
   </ng-container>
-  <span class="button__label">
-    {{ label }}
-  </span>
+  <ng-container *ngIf="label">
+    <span class="button__label">
+      {{ label }}
+    </span>
+  </ng-container>
 </button>

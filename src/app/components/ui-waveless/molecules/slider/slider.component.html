@@ -1,0 +1,25 @@
+<div class="slider" [style.width]="_width" [style.height]="_height">
+
+  <app-button type="square" color='primary' icon="chevron-left" iconColor="color-basic-white" aria-label="prev"
+    class="slider__arrow slider__arrow--left" (click)="prev()" *ngIf="images.length > 1">
+  </app-button>
+
+  <div class="slider__slides">
+    <div class="slider__slide" *ngFor="let url of images; let i = index" [class.active]="i === current"
+      [style.backgroundImage]="'url(' + url + ')'">
+    </div>
+    <div class="slider__projection" [style.height]="_height">
+      <ng-content></ng-content>
+    </div>
+  </div>
+
+  <app-button type="square" color='primary' icon="chevron-right" iconColor="color-basic-white" aria-label="next"
+    class="slider__arrow slider__arrow--right" (click)="next()" *ngIf="images.length > 1">
+  </app-button>
+
+  <div class="slider__dots" *ngIf="images.length > 1">
+    <span class="slider__dot" *ngFor="let _ of images; let i = index" [class.active]="i === current" (click)="go(i)"
+      (keydown.enter)="go(i)" (keydown.space)="go(i)" tabindex="0"></span>
+  </div>
+
+</div>

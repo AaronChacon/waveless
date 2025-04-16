@@ -1,7 +1,7 @@
-import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ButtonColor, ButtonIcon, ButtonIconSize, ButtonSize, ButtonType } from './buton.types';
+import { Component, Input } from '@angular/core';
 import { IconComponent } from '../icon/icon.component';
+import { ButtonColor, ButtonIcon, ButtonIconColor, ButtonIconSize, ButtonSize, ButtonType } from './buton.types';
 
 @Component({
   standalone: true,
@@ -13,11 +13,12 @@ import { IconComponent } from '../icon/icon.component';
 export class ButtonComponent {
   @Input() label = '';
   @Input() disabled? = false;
-  @Input() icon?: ButtonIcon = null;
-  @Input() iconSize?: ButtonIconSize = null;
   @Input() color?: ButtonColor = 'primary';
   @Input() size?: ButtonSize = 'base';
   @Input() type?: ButtonType = 'default';
+  @Input() icon?: ButtonIcon = null;
+  @Input() iconSize?: ButtonIconSize = 24;
+  @Input() iconColor?: ButtonIconColor = 'color-basic-800';
 
 
   get classes(): string[] {

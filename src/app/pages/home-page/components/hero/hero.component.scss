@@ -1,0 +1,45 @@
+@use 'base/colors' as color;
+@use 'utils/utilities' as utilities;
+@use 'base/breakpoints' as breakpoints;
+@use 'base/variable' as variable;
+
+
+.hero {
+  width: 100%;
+  height: auto;
+
+  &__title {
+    margin-top: 40px;
+    margin-bottom: 12px;
+    text-align: center;
+    letter-spacing: 1.5px;
+    @include utilities.font-details(32px, 36px, 700, color.$color-basic-white, variable.$typo-syne);
+
+    @include breakpoints.medium {
+      @include utilities.font-details(30px, 34px, 700, color.$color-basic-white, variable.$typo-syne);
+    }
+
+    @include breakpoints.small {
+      max-width: 230px;
+    }
+
+  }
+
+  &__subtitle {
+    text-align: center;
+    margin-bottom: 48px;
+    letter-spacing:1.5px;
+    @include utilities.font-details(20px, 26px, 500, color.$color-basic-white, variable.$typo-syne);
+
+    @include breakpoints.medium {
+      @include utilities.font-details(18px, 24px, 500, color.$color-basic-white, variable.$typo-syne);
+    }
+
+    @include breakpoints.small {
+      max-width: 230px;
+    }
+
+  }
+
+
+}
