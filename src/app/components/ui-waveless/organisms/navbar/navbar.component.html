@@ -1,46 +1,74 @@
 <div class="navbar">
   <div class="navbar__container">
     <div class="navbar__logo">
-      <img src="/assets/img/svg/waveles-logo.svg" alt="waveles-logo">
+      <img src="/assets/img/svg/waveles-logo.svg" alt="waveles-logo" />
     </div>
     <div class="navbar__items">
       <ng-container *ngFor="let item of navbarItems">
-        <app-tab [route]="item.route" [iconName]="item.iconName" [iconSize]="item.iconSize" [iconColor]="item.iconColor"
-          [text]="item.text" [active]="isActiveTab(item.route)">
+        <app-tab
+          [route]="item.route"
+          [iconName]="item.iconName"
+          [iconSize]="item.iconSize"
+          [iconColor]="item.iconColor"
+          [text]="item.text"
+          [active]="isActiveTab(item.route)"
+        >
         </app-tab>
       </ng-container>
     </div>
     <div class="navbar__actions">
       <div class="navbar__reserve">
-        <app-button label="Reservar" [disabled]="false">
-        </app-button>
+        <app-button label="Reservar" [disabled]="false"> </app-button>
       </div>
-      <div class="navbar__menu" tabindex="0" (click)="toggleSidebar()" (keydown)="handleKeydown($event)">
-        <app-icon class="navbar__icon" name="horizontal-tree-lines" color="color-basic-800" [size]="24"></app-icon>
+      <div
+        class="navbar__menu"
+        tabindex="0"
+        (click)="toggleSidebar()"
+        (keydown)="handleKeydown($event)"
+      >
+        <app-icon
+          class="navbar__icon"
+          name="horizontal-tree-lines"
+          color="color-basic-800"
+          [size]="24"
+        ></app-icon>
       </div>
     </div>
   </div>
 
-  <div class="navbar__mobile" [ngClass]="{'navbar__mobile--active': isSidebarOpen}">
+  <div
+    class="navbar__mobile"
+    [ngClass]="{ 'navbar__mobile--active': isSidebarOpen }"
+  >
     <div class="navbar__header">
       <div class="navbar__logo">
-        <img src="/assets/img/svg/waveles-logo.svg" alt="waveles-mobile-logo">
+        <img src="/assets/img/svg/waveles-logo.svg" alt="waveles-mobile-logo" />
       </div>
 
-      <app-icon (click)="toggleSidebar()" (keydown)="handleKeydown($event)" class="navbar__close" name="close"
-        color="color-basic-800" [size]="24"></app-icon>
+      <app-icon
+        (click)="toggleSidebar()"
+        (keydown)="handleKeydown($event)"
+        class="navbar__close"
+        name="close"
+        color="color-basic-800"
+        [size]="24"
+      ></app-icon>
     </div>
     <div class="navbar__main">
-
       <ng-container *ngFor="let item of navbarItems">
-        <app-tab [route]="item.route" [iconName]="item.iconName" [iconSize]="item.iconSize" [iconColor]="item.iconColor"
-          [text]="item.text" [active]="isActiveTab(item.route)">
+        <app-tab
+          [route]="item.route"
+          [iconName]="item.iconName"
+          [iconSize]="item.iconSize"
+          [iconColor]="item.iconColor"
+          [text]="item.text"
+          [active]="isActiveTab(item.route)"
+        >
         </app-tab>
       </ng-container>
-
     </div>
     <div class="navbar__footer">
-      <span> 2025 Waveless - Todos los derechos reservados.</span>
+      <span>&#64;2025 Waveless - Todos los derechos reservados.</span>
     </div>
   </div>
 </div>

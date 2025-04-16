@@ -1,7 +1,6 @@
-// @use 'base/colors' as colors;
-// @use 'base/variables' as variables;
-// @use 'base/breakpoints' as breakpoints;
-// @use 'utilities/utilities' as utilities;
+@use 'base/colors' as color;
+@use 'utils/utilities' as utilities;
+@use 'base/breakpoints' as breakpoints;
 
 .home-page {
   width: 100%;

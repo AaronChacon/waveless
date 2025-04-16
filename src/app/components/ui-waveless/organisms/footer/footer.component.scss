@@ -1,0 +1,44 @@
+@use 'base/colors' as color;
+@use 'utils/utilities' as utilities;
+@use 'base/breakpoints' as breakpoints;
+
+.footer {
+  width: 100%;
+  height: auto;
+
+  &__top {
+    width: 100%;
+    height: auto;
+    padding: 48px 16px;
+    background-color: color.$color-secondary-050;
+    border-top: 1px solid color.$color-basic-100;
+    @include utilities.flexbox-param(flex, center, center);
+
+    @include breakpoints.m-large {
+      @include utilities.flexbox-param(flex, center, flex-start);
+    }
+
+    img {
+      width: 144.7px;
+      height: auto;
+    }
+  }
+
+  &__bottom {
+    width: 100%;
+    height: auto;
+    padding: 16px 4px;
+    background-color: color.$color-basic-100;
+    @include utilities.flexbox-param(flex, center, center);
+
+    span {
+      text-align: center;
+      @include utilities.font-details(
+        14px,
+        20px,
+        700,
+        color.$color-brand-purple
+      );
+    }
+  }
+}

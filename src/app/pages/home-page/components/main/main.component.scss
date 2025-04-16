@@ -1,0 +1,70 @@
+@use 'base/colors' as color;
+@use 'base/variable' as variable;
+@use 'utils/utilities' as utilities;
+@use 'base/breakpoints' as breakpoints;
+
+.main {
+  width: 100%;
+  height: auto;
+  min-height: 800px;
+  padding: 72px 0;
+  // @include utilities.flexbox-param(flex, center, center);
+
+  &__container {
+    gap: 24px;
+    width: 78.33%;
+    height: auto;
+    margin: 0 auto;
+    max-width: 1440px;
+
+    @include breakpoints.large {
+      width: 82.11%;
+    }
+
+    @include breakpoints.medium {
+      width: 93.55%;
+    }
+
+    @include breakpoints.small {
+      width: 100%;
+      padding: 0 16px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 8px;
+    text-align: center;
+    letter-spacing: 1px;
+    @include utilities.font-details(
+      38px,
+      40px,
+      700,
+      color.$color-primary-900,
+      variable.$typo-syne
+    );
+
+    @include breakpoints.medium {
+      @include utilities.font-details(
+        30px,
+        34px,
+        700,
+        color.$color-primary-900,
+        variable.$typo-syne
+      );
+    }
+  }
+
+  &__subtitle {
+    text-align: center;
+    margin-bottom: 72px;
+    @include utilities.font-details(22px, 26px, 400, color.$color-basic-500);
+
+    @include breakpoints.large {
+      margin-bottom: 48px;
+    }
+
+    @include breakpoints.medium {
+      @include utilities.font-details(18px, 24px, 500, color.$color-basic-500);
+    }
+  }
+}
