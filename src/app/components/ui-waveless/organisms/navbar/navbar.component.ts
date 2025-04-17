@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { IconComponent } from '../../atoms/icon/icon.component';
 import { NavbarActionsEnum } from './enum/navbar.enum';
 import { TabComponent } from '../../molecules/tab/tab.component';
-import { IconName } from '../../atoms/icon/icon.interface';
+import { IconName } from '../../atoms/icon/icon.type';
 import { ButtonComponent } from '../../atoms/button/button.component';
 
 interface NavbarItem {
@@ -25,10 +25,34 @@ export class NavbarComponent {
   isSidebarOpen = false;
 
   navbarItems: NavbarItem[] = [
-    { route: '/', iconName: 'mountains', iconSize: 24, iconColor: 'color-basic-800', text: 'Aventura' },
-    { route: '/destinations', iconName: 'world', iconSize: 24, iconColor: 'color-basic-800', text: 'Destinos' },
-    { route: '/hosting', iconName: 'home', iconSize: 24, iconColor: 'color-basic-800', text: 'Alojamiento' },
-    { route: '/about', iconName: null, iconSize: 0, iconColor: '', text: 'Sobre nosotros' }
+    {
+      route: '/',
+      iconName: 'mountains',
+      iconSize: 24,
+      iconColor: 'color-basic-800',
+      text: 'Aventura',
+    },
+    {
+      route: '/destinations',
+      iconName: 'world',
+      iconSize: 24,
+      iconColor: 'color-basic-800',
+      text: 'Destinos',
+    },
+    {
+      route: '/hosting',
+      iconName: 'home',
+      iconSize: 24,
+      iconColor: 'color-basic-800',
+      text: 'Alojamiento',
+    },
+    {
+      route: '/about',
+      iconName: null,
+      iconSize: 0,
+      iconColor: '',
+      text: 'Sobre nosotros',
+    },
   ];
 
   toggleSidebar() {

@@ -4,9 +4,206 @@
     <p class="main__subtitle">
       Para los que les gusta explorar y conocer mundo sin complejos
     </p>
+
     <div class="main__content">
-      <div class="main__filter"></div>
-      <div class="main__cards"></div>
+      <div class="main__filter">
+        <app-button
+          iconColor="color-basic-800"
+          icon="filter"
+          type="filter"
+          label="Ver filtros"
+          class="main__toggle"
+          (click)="toggleMobileFilter()"
+        >
+        </app-button>
+
+        <app-filter
+          class="main__filters"
+          [title]="'Filtrar mi búsqueda'"
+          [isOpen]="isMobileFilterOpen"
+          (isOpenChange)="syncToggles($event)"
+        >
+          <app-accordion [title]="'Destino'" [icon]="'world'" [opened]="false">
+            <app-checkbox
+              class="main__checkbox"
+              [label]="'Barcelona'"
+              [info]="'new'"
+              (checkedChange)="onCheckedChange($event)"
+            ></app-checkbox>
+
+            <app-checkbox
+              class="main__checkbox"
+              [label]="'Madrid'"
+              [info]="'new'"
+              (checkedChange)="onCheckedChange($event)"
+            ></app-checkbox>
+
+            <app-checkbox
+              class="main__checkbox"
+              [label]="'Valencia'"
+              [info]="'new'"
+              [checked]="true"
+              (checkedChange)="onCheckedChange($event)"
+            ></app-checkbox>
+
+            <app-checkbox
+              class="main__checkbox"
+              [label]="'Alicante'"
+              [info]="'new'"
+              [checked]="true"
+              [disabled]="true"
+              (checkedChange)="onCheckedChange($event)"
+            ></app-checkbox>
+          </app-accordion>
+
+          <app-accordion
+            [title]="'Aventura'"
+            [icon]="'mountains'"
+            [opened]="false"
+          >
+            <app-checkbox
+              class="main__checkbox"
+              [label]="'Quads'"
+              [info]="'new'"
+              (checkedChange)="onCheckedChange($event)"
+            ></app-checkbox>
+
+            <app-checkbox
+              class="main__checkbox"
+              [label]="'Parapente'"
+              [info]="'new'"
+              [checked]="true"
+              (checkedChange)="onCheckedChange($event)"
+            ></app-checkbox>
+
+            <app-checkbox
+              class="main__checkbox"
+              [label]="'Rafting'"
+              [info]="'new'"
+              (checkedChange)="onCheckedChange($event)"
+            ></app-checkbox>
+
+            <app-checkbox
+              class="main__checkbox"
+              [label]="'Explora'"
+              [info]="'new'"
+              [checked]="true"
+              (checkedChange)="onCheckedChange($event)"
+            ></app-checkbox>
+
+            <app-checkbox
+              class="main__checkbox"
+              [label]="'Buceo'"
+              [info]="'new'"
+              [checked]="true"
+              (checkedChange)="onCheckedChange($event)"
+            ></app-checkbox>
+
+            <app-checkbox
+              class="main__checkbox"
+              [label]="'Paracaídas'"
+              [info]="'new'"
+              [checked]="true"
+              (checkedChange)="onCheckedChange($event)"
+            ></app-checkbox>
+
+            <app-checkbox
+              class="main__checkbox"
+              [label]="'Snowboard'"
+              [info]="'new'"
+              [checked]="true"
+              (checkedChange)="onCheckedChange($event)"
+            ></app-checkbox>
+
+            <app-checkbox
+              class="main__checkbox"
+              [label]="'Surf'"
+              [info]="'new'"
+              [checked]="true"
+              (checkedChange)="onCheckedChange($event)"
+            ></app-checkbox>
+
+            <p class="main__show-more">Ver 21 más</p>
+          </app-accordion>
+
+          <app-accordion
+            [title]="'Alojamiento'"
+            [icon]="'home'"
+            [opened]="false"
+          >
+            <app-checkbox
+              class="main__checkbox"
+              [label]="'Barcelona'"
+              [info]="'new'"
+              (checkedChange)="onCheckedChange($event)"
+            ></app-checkbox>
+
+            <app-checkbox
+              class="main__checkbox"
+              [label]="'Madrid'"
+              [info]="'new'"
+              (checkedChange)="onCheckedChange($event)"
+            ></app-checkbox>
+
+            <app-checkbox
+              class="main__checkbox"
+              [label]="'Valencia'"
+              [info]="'new'"
+              [checked]="true"
+              (checkedChange)="onCheckedChange($event)"
+            ></app-checkbox>
+
+            <app-checkbox
+              class="main__checkbox"
+              [label]="'Alicante'"
+              [info]="'new'"
+              [checked]="true"
+              [disabled]="true"
+              (checkedChange)="onCheckedChange($event)"
+            ></app-checkbox>
+          </app-accordion>
+
+          <app-accordion [title]="'Precio'" [icon]="'price'" [opened]="true">
+            <app-input
+              class="main__input"
+              icon="price"
+              [iconSize]="24"
+              placeholder="Minimo"
+              iconColor="color-basic-800"
+            ></app-input>
+
+            <app-input
+              class="main__input"
+              icon="price"
+              [iconSize]="24"
+              placeholder="Maximo"
+              iconColor="color-basic-800"
+            ></app-input>
+          </app-accordion>
+        </app-filter>
+      </div>
+      <div class="main__data">
+        <!-- <div class="main__section">
+          <p class="main__title">Asia</p>
+
+          <div class="main__cards">
+
+          </div>
+        </div> -->
+
+        <!-- <ng-container *ngFor="let card of cards">
+          <app-card
+            [image]="card.image"
+            [title]="card.title"
+            [subtitle]="card.subtitle"
+            [description]="card.description"
+            [tags]="card.tags"
+            [price]="card.price"
+            [route]="card.route"
+          >
+          </app-card>
+        </ng-container> -->
+      </div>
     </div>
   </div>
 </div>

@@ -1,0 +1,19 @@
+<div class="filter" [ngClass]="{ 'filter--isOpen': isOpen }">
+  <div class="filter__header">
+    <p class="filter__title truncate">
+      {{ title }}
+    </p>
+
+    <app-icon
+      name="close"
+      [size]="22"
+      color="color-primary-900"
+      class="filter__close"
+      (click)="toggleMobileView()"
+    >
+    </app-icon>
+  </div>
+  <div class="filter__main">
+    <ng-content></ng-content>
+  </div>
+</div>

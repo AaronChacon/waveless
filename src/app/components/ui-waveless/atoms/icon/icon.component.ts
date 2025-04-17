@@ -1,8 +1,15 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import {
+  Component,
+  inject,
+  Input,
+  OnChanges,
+  OnInit,
+  SimpleChanges,
+} from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { IconService } from '../../../../core/services/icon.service';
-import { IconName } from './icon.interface';
+import { IconName } from './icon.type';
 
 @Component({
   standalone: true,
@@ -39,16 +46,11 @@ export class IconComponent implements OnInit, OnChanges {
   private loadIcon(): void {
     if (!this.name) return;
 
-    this.iconService
-      .getIconContent(this.name)
-      .subscribe({
-        next: (svg) => {
-          const updatedSvg = svg.replace(/fill="#\w+"/g, 'fill="currentColor"');
-          this.svgContent = this.sanitizer.bypassSecurityTrustHtml(updatedSvg);
-        },
-      });
+    this.iconService.getIconContent(this.name).subscribe({
+      next: (svg) => {
+        const updatedSvg = svg.replace(/fill="#\w+"/g, 'fill="currentColor"');
+        this.svgContent = this.sanitizer.bypassSecurityTrustHtml(updatedSvg);
+      },
+    });
   }
-
-
-
 }

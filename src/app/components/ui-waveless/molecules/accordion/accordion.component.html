@@ -1,0 +1,26 @@
+<section class="accordion" [class.accordion--open]="opened">
+  <div
+    class="accordion__header"
+    tabindex="0"
+    (click)="toggle()"
+    (keydown.enter)="toggle()"
+    (keydown.space)="toggle()"
+  >
+    <div class="accordion__description">
+      <ng-container *ngIf="icon">
+        <app-icon class="accordion__icon" [name]="icon" [size]="24"></app-icon>
+      </ng-container>
+      <span class="accordion__title">{{ title }}</span>
+    </div>
+
+    <app-icon
+      class="accordion__toggle"
+      name="chevron-right"
+      [size]="24"
+    ></app-icon>
+  </div>
+
+  <div class="accordion__body">
+    <ng-content></ng-content>
+  </div>
+</section>

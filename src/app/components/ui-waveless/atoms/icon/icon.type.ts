@@ -1,4 +1,3 @@
-
 export type IconName =
   | 'calendar'
   | 'chevron-down'
@@ -14,5 +13,6 @@ export type IconName =
   | 'print'
   | 'triangle'
   | 'users'
-  | 'world';
-
+  | 'world'
+  | 'filter'
+  | 'info';

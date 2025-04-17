@@ -1,0 +1,75 @@
+@use 'base/colors' as color;
+@use 'utils/utilities' as utilities;
+@use 'base/breakpoints' as breakpoints;
+
+.accordion {
+  width: 100%;
+  height: auto;
+
+  &--open {
+    .accordion__icon {
+      color: color.$color-secondary-600;
+    }
+
+    .accordion__title {
+      color: color.$color-secondary-600;
+    }
+
+    .accordion__toggle {
+      transform: rotate(90deg);
+      color: color.$color-secondary-600;
+    }
+
+    .accordion__body {
+      height: auto;
+      display: block;
+      visibility: visible;
+      padding: 12px 16px 16px;
+    }
+  }
+
+  &__header {
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+    padding: 12px 4px;
+    border-radius: 6px;
+    @include utilities.flexbox-param(flex, center, space-between);
+
+    &:hover {
+      transition: 0.3s ease;
+      background-color: color.$color-secondary-100;
+    }
+  }
+
+  &__description {
+    gap: 8px;
+    width: auto;
+    height: auto;
+    @include utilities.flexbox-param(flex, center, flex-start);
+  }
+
+  &__icon {
+    width: auto;
+    color: color.$color-basic-800;
+  }
+
+  &__title {
+    margin-top: 0;
+    margin-bottom: 0;
+    @include utilities.font-details(16px, 20px, 600, color.$color-basic-800);
+  }
+
+  &__toggle {
+    width: auto;
+    height: auto;
+    transition: 0.3s ease;
+  }
+
+  &__body {
+    width: 100%;
+    display: none;
+    visibility: hidden;
+    transition: all 0.25s ease;
+  }
+}

@@ -1,0 +1,50 @@
+@use 'base/colors' as color;
+@use 'utils/utilities' as utilities;
+@use 'base/breakpoints' as breakpoints;
+@use 'base/variable' as variable;
+
+.checkbox {
+  gap: 8px;
+  width: 100%;
+  height: auto;
+  cursor: pointer;
+  @include utilities.flexbox-param(flex, center, flex-start);
+
+  &--disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+
+  &--checked {
+    .checkbox__box {
+      background-color: color.$color-brand-orange;
+    }
+  }
+
+  &__box {
+    display: grid;
+    width: 18px;
+    height: 18px;
+    border-radius: 2px;
+    place-items: center;
+    background: transparent;
+    transition: background 0.2s;
+    color: color.$color-brand-purple;
+    background-color: color.$color-basic-white;
+    border: 1px solid color.$color-brand-purple;
+
+    // .checkbox:not(.checkbox--disabled) & {
+    //   background-color: color.$color-brand-orange;
+    // }
+  }
+
+  &__label {
+    margin: 0;
+    @include utilities.font-details(14px, 20px, 600, color.$color-basic-800);
+  }
+
+  &__info {
+    cursor: help;
+    color: color.$color-brand-purple;
+  }
+}

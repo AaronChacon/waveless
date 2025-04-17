@@ -1,0 +1,21 @@
+<div class="input">
+  <ng-container *ngIf="icon">
+    <app-icon
+      class="input__icon"
+      [name]="icon"
+      [size]="iconSize"
+      [color]="iconColor"
+    ></app-icon>
+  </ng-container>
+
+  <input
+    class="input__element"
+    [ngClass]="{
+      'input__element--error': error,
+      'input__element--disabled': disabled,
+    }"
+    [type]="type"
+    [placeholder]="placeholder"
+    [disabled]="disabled"
+  />
+</div>

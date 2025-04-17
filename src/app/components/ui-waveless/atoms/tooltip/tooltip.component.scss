@@ -1,0 +1,54 @@
+@use 'base/colors' as color;
+@use 'utils/utilities' as utilities;
+@use 'base/breakpoints' as breakpoints;
+
+:host {
+  width: auto;
+  height: auto;
+  @include utilities.flexbox-param(flex, center, center);
+}
+
+.tooltip {
+  width: auto;
+  height: auto;
+  cursor: help;
+  position: relative;
+  display: inline-block;
+
+  &:hover .tooltip__bubble,
+  &:focus-within .tooltip__bubble {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+/* La burbuja */
+.tooltip__bubble {
+  opacity: 0;
+  visibility: hidden;
+  z-index: 10;
+  left: 50%;
+  bottom: 100%;
+  position: absolute;
+  transform: translateX(-50%);
+  margin-bottom: 8px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  white-space: nowrap;
+  transition: opacity 0.2s ease;
+  box-shadow: 0 2px 8px color.$color-basic-500;
+  background: color.$color-basic-white;
+  @include utilities.font-details(14px, 16px, 500, color.$color-basic-800);
+}
+
+.tooltip__arrow {
+  position: absolute;
+  width: 0;
+  height: 0;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid color.$color-basic-white;
+}

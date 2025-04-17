@@ -1,0 +1,41 @@
+<label
+  class="checkbox"
+  [ngClass]="{
+    'checkbox--checked': checked && !disabled,
+    'checkbox--disabled': disabled,
+  }"
+>
+  <span
+    class="checkbox__box"
+    (click)="toggle()"
+    (keydown.enter)="toggle()"
+    tabindex="0"
+  >
+    <ng-container *ngIf="checked && !disabled">
+      <svg width="16" height="16" viewBox="0 0 16 16">
+        <polyline
+          points="3 8 6.5 11.5 13 5"
+          stroke-width="2"
+          fill="none"
+          stroke="currentColor"
+        />
+      </svg>
+    </ng-container>
+  </span>
+
+  <span
+    class="checkbox__label truncate"
+    (click)="toggle()"
+    (keydown.enter)="toggle()"
+    tabindex="0"
+    >{{ label }}</span
+  >
+
+  <ng-container *ngIf="info">
+    <app-tooltip [text]="info" [disabled]="disabled">
+      <app-icon class="checkbox__info" name="info" [size]="16"></app-icon>
+    </app-tooltip>
+  </ng-container>
+
+  <input type="checkbox" [checked]="checked" [disabled]="disabled" hidden />
+</label>

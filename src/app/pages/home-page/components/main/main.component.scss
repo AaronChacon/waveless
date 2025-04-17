@@ -8,7 +8,12 @@
   height: auto;
   min-height: 800px;
   padding: 72px 0;
+  position: relative;
   // @include utilities.flexbox-param(flex, center, center);
+
+  @include breakpoints.small {
+    position: initial;
+  }
 
   &__container {
     gap: 24px;
@@ -65,6 +70,82 @@
 
     @include breakpoints.medium {
       @include utilities.font-details(18px, 24px, 500, color.$color-basic-500);
+    }
+  }
+
+  &__content {
+    gap: 24px;
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: flex-start;
+
+    @include breakpoints.m-large {
+      display: block;
+    }
+  }
+
+  &__filter {
+    width: 23.4%;
+    height: auto;
+    padding-top: 40px;
+
+    @include breakpoints.m-large {
+      width: 100%;
+      padding-top: 0;
+      margin-bottom: 24px;
+    }
+
+    @include breakpoints.medium {
+      @include utilities.flexbox-param(flex, center, center);
+    }
+
+    .main__toggle {
+      display: none;
+
+      @include breakpoints.m-large {
+        display: inline-block;
+      }
+    }
+
+    .main__checkbox {
+      width: 100%;
+      display: block;
+      padding: 12px 0;
+    }
+
+    .main__show-more {
+      width: 100%;
+      height: auto;
+      padding: 16px 0;
+      cursor: pointer;
+      text-decoration: underline;
+      @include utilities.font-details(
+        14px,
+        20px,
+        600,
+        color.$color-brand-purple
+      );
+    }
+
+    .main__input {
+      width: 100%;
+      height: auto;
+      display: flex;
+      margin-bottom: 16px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__cards {
+    width: 74.47%;
+    height: auto;
+
+    @include breakpoints.m-large {
+      width: 100%;
     }
   }
 }

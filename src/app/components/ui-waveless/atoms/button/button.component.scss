@@ -1,7 +1,6 @@
-@use 'base/colors'as color;
-@use 'utils/utilities'as utilities;
-@use 'base/breakpoints'as breakpoints;
-
+@use 'base/colors' as color;
+@use 'utils/utilities' as utilities;
+@use 'base/breakpoints' as breakpoints;
 
 .button {
   gap: 10px;
@@ -28,6 +27,25 @@
     line-height: inherit;
   }
 
+  &--filter {
+    width: 152px;
+    height: 40px;
+    padding: 8px 14px;
+
+    &.button--base {
+      @include utilities.font-details(20px, 24px, 600, color.$color-basic-800);
+    }
+
+    &.button--primary {
+      color: color.$color-basic-800;
+      border: 1px solid color.$color-basic-100;
+      background-color: color.$color-secondary-050;
+
+      &:hover:not(.button--disabled) {
+        background-color: color.$color-secondary-100;
+      }
+    }
+  }
 
   &--square {
     width: auto;
@@ -39,12 +57,7 @@
 
     &.button--primary {
       background-color: color.$color-primary-low-alpha;
-
-      .button__icon {
-        color: color.$color-basic-white;
-      }
     }
-
   }
 
   &--disabled {
@@ -61,7 +74,6 @@
     &:hover:not(.button--disabled) {
       background-color: color.$color-primary-800;
     }
-
   }
 
   &--secondary {
