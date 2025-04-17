@@ -1,0 +1,286 @@
+@use 'base/colors' as color;
+@use 'base/variable' as variable;
+@use 'utils/utilities' as utilities;
+@use 'base/breakpoints' as breakpoints;
+
+.card {
+  width: 100%;
+  height: auto;
+  border-radius: 24px;
+  box-shadow: variable.$shadow-base-050;
+  background-color: color.$color-basic-white;
+
+  &__header {
+    width: 100%;
+    height: 188px;
+    border-bottom: 1px solid color.$color-basic-100;
+    @include utilities.flexbox-param(flex, center, center);
+
+    .card__image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 24px 24px 0 0;
+    }
+  }
+
+  &__body {
+    width: 100%;
+    height: auto;
+    padding: 16px;
+
+    .card__details {
+      gap: 6px;
+      width: 100%;
+      height: auto;
+      margin-bottom: 8px;
+      @include utilities.flexbox-param(flex, center, flex-start);
+
+      .card__location {
+        @include utilities.font-details(
+          14px,
+          18px,
+          700,
+          color.$color-brand-purple,
+          variable.$typo-syne
+        );
+      }
+
+      .card__days {
+        @include utilities.font-details(
+          14px,
+          18px,
+          500,
+          color.$color-basic-800,
+          variable.$typo-syne
+        );
+      }
+    }
+
+    .card__title {
+      @include utilities.truncate-lines(2);
+      @include utilities.font-details(18px, 22px, 700, color.$color-basic-800);
+    }
+  }
+
+  &__footer {
+    gap: 16px;
+    width: 100%;
+    height: 86px;
+    padding: 12px 16px 16px;
+    border-top: 1px solid color.$color-secondary-050;
+    @include utilities.flexbox-param(flex, center, space-between);
+
+    @include breakpoints.m-large {
+      gap: 12px;
+      height: auto;
+      flex-direction: column;
+    }
+
+    .card__price {
+      width: auto;
+      height: auto;
+
+      @include breakpoints.m-large {
+        width: 100%;
+        display: flex;
+        @include utilities.flexbox-param(flex, flex-end, space-between);
+      }
+
+      .card__price-description {
+        width: auto;
+        height: auto;
+
+        @include breakpoints.m-large {
+          order: 1;
+        }
+      }
+
+      .card__note {
+        margin: 0;
+        @include utilities.font-details(
+          12px,
+          16px,
+          500,
+          color.$color-basic-800
+        );
+      }
+
+      .card__amount {
+        gap: 2px;
+        width: auto;
+        height: auto;
+        margin-top: 0;
+        margin-bottom: 2px;
+        @include utilities.flexbox-param(flex, center, flex-start);
+
+        .card__value,
+        .card__currency {
+          margin: 0;
+          @include utilities.font-details(
+            22px,
+            24px,
+            700,
+            color.$color-basic-800
+          );
+        }
+      }
+
+      .card__dropdown {
+        width: auto;
+        height: auto;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        @include utilities.flexbox-param(flex, center, flex-start);
+
+        &:active {
+          transform: scale(0.97);
+        }
+
+        .card__text {
+          margin: 0;
+          text-decoration: underline;
+          @include utilities.font-details(
+            14px,
+            16px,
+            600,
+            color.$color-brand-purple
+          );
+        }
+
+        .card__icon {
+          width: auto;
+          height: auto;
+        }
+      }
+
+      .card__drop-content {
+        width: 400px;
+        height: auto;
+
+        @include breakpoints.small {
+          width: 100%;
+        }
+
+        .card__drop-main {
+          width: 100%;
+          height: auto;
+          padding: 24px;
+
+          .card__drop-info {
+            gap: 10px;
+            width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+            @include utilities.flexbox-param(flex, center, flex-start);
+
+            .card__drop-location {
+              @include utilities.font-details(
+                18px,
+                24px,
+                700,
+                color.$color-brand-purple,
+                variable.$typo-syne
+              );
+            }
+
+            .card__drop-days {
+              @include utilities.font-details(
+                18px,
+                24px,
+                500,
+                color.$color-basic-800,
+                variable.$typo-syne
+              );
+            }
+          }
+
+          .card__drop-items {
+            width: 100%;
+            height: auto;
+
+            .card__drop-item {
+              gap: 12px;
+              width: 100%;
+              height: auto;
+              margin-bottom: 16px;
+              @include utilities.flexbox-param(flex, center, space-between);
+
+              &:last-child {
+                margin-bottom: 0;
+              }
+
+              .card__drop-item-label {
+                @include utilities.font-details(
+                  16px,
+                  20px,
+                  500,
+                  color.$color-basic-800
+                );
+              }
+
+              .card__drop-item-value {
+                @include utilities.font-details(
+                  18px,
+                  20px,
+                  700,
+                  color.$color-basic-800
+                );
+              }
+            }
+          }
+        }
+
+        .card__drop-footer {
+          gap: 20px;
+          width: 100%;
+          height: auto;
+          padding: 20px 24px;
+          border-radius: 0 0 24px 24px;
+          border-top: 1px solid color.$color-basic-100;
+          background-color: color.$color-secondary-050;
+          @include utilities.flexbox-param(flex, center, space-between);
+
+          @include breakpoints.small {
+            border-radius: 0;
+            background-color: color.$color-basic-white;
+          }
+
+          .card__drop-label {
+            margin: 0;
+            @include utilities.font-details(
+              18px,
+              22px,
+              700,
+              color.$color-basic-800
+            );
+          }
+
+          .card__drop-value {
+            margin: 0;
+            @include utilities.font-details(
+              22px,
+              24px,
+              700,
+              color.$color-basic-800
+            );
+          }
+        }
+      }
+    }
+
+    .card__action {
+      width: auto;
+      height: auto;
+
+      @include breakpoints.m-large {
+        width: 100%;
+        @include utilities.flexbox-param(flex, center, center);
+
+        .card__button {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

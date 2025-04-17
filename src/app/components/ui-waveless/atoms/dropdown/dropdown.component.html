@@ -1,0 +1,33 @@
+<div
+  class="dropdown-backdrop"
+  *ngIf="isOpen"
+  (click)="close()"
+  (keydown.escape)="close()"
+  tabindex="0"
+></div>
+<div class="dropdown">
+  <span
+    class="dropdown__trigger"
+    #triggerRef
+    (click)="toggle()"
+    (keydown.enter)="toggle()"
+    tabindex="0"
+  >
+    <ng-content select="[appDropdownTrigger]"></ng-content>
+  </span>
+
+  <div class="dropdown__panel" *ngIf="isOpen" #panelRef>
+    <div class="dropdown__header">
+      <h3 class="dropdown__title">Desglose de precios</h3>
+      <app-icon
+        name="close"
+        [size]="22"
+        color="color-primary-900"
+        class="dropdown__close"
+        (click)="close()"
+      >
+      </app-icon>
+    </div>
+    <ng-content select="[appDropdownContent]"></ng-content>
+  </div>
+</div>

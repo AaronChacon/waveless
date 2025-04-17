@@ -9,7 +9,6 @@
   min-height: 800px;
   padding: 72px 0;
   position: relative;
-  // @include utilities.flexbox-param(flex, center, center);
 
   @include breakpoints.small {
     position: initial;
@@ -140,12 +139,43 @@
     }
   }
 
-  &__cards {
+  &__collection {
     width: 74.47%;
     height: auto;
 
     @include breakpoints.m-large {
       width: 100%;
+    }
+
+    .main__title {
+      text-align: left;
+      letter-spacing: normal;
+      margin-bottom: 16px;
+      @include utilities.font-details(
+        22px,
+        24px,
+        600,
+        color.$color-basic-800,
+        variable.$typo-syne
+      );
+    }
+  }
+
+  &__cards {
+    gap: 24px;
+    width: 100%;
+    height: auto;
+    display: grid;
+    grid-auto-rows: 1fr;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    margin-bottom: 24px;
+
+    @include breakpoints.xl-large {
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    }
+
+    @include breakpoints.m-large {
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     }
   }
 }

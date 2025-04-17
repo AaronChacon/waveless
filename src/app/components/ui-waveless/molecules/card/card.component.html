@@ -1,0 +1,83 @@
+<div class="card">
+  <div class="card__header">
+    <img class="card__image" src="assets/img/jpg/bg-1.jpg" alt="image" />
+  </div>
+  <div class="card__body">
+    <div class="card__details">
+      <span class="card__location truncate">Marruecos, África</span>
+      <span class="card__days truncate">9 días</span>
+    </div>
+
+    <h3 class="card__title">Descubre Bangkok con Iberojet</h3>
+  </div>
+  <div class="card__footer">
+    <div class="card__price">
+      <div class="card__price-description">
+        <span class="card__note">Desde</span>
+        <div class="card__amount">
+          <span class="card__value truncate">248,00</span>
+          <span class="card__currency">€</span>
+        </div>
+      </div>
+
+      <app-dropdown [isOpen]="isDropdownOpen">
+        <ng-container appDropdownTrigger>
+          <div class="card__dropdown">
+            <span class="card__text truncate">Ver desglose</span>
+            <app-icon
+              [size]="16"
+              name="chevron-down"
+              color="color-primary-800"
+              class="card__icon"
+            >
+            </app-icon>
+          </div>
+        </ng-container>
+
+        <ng-container appDropdownContent>
+          <div class="card__drop-content">
+            <div class="card__drop-main">
+              <div class="card__drop-info">
+                <h3 class="card__drop-location">Marruecos, África</h3>
+                <span class="card__drop-days">9 días</span>
+              </div>
+              <div class="card__drop-items">
+                <div class="card__drop-item">
+                  <span class="card__drop-item-label truncate"
+                    >Precio antes de impuestos</span
+                  >
+                  <span class="card__drop-item-value truncate">1.124,00 €</span>
+                </div>
+                <div class="card__drop-item">
+                  <span class="card__drop-item-label truncate">Impuesto</span>
+                  <span class="card__drop-item-value truncate">4,43 €</span>
+                </div>
+                <div class="card__drop-item">
+                  <span class="card__drop-item-label truncate"
+                    >Lorem ipsum</span
+                  >
+                  <span class="card__drop-item-value truncate">150,42 €</span>
+                </div>
+              </div>
+            </div>
+            <div class="card__drop-footer">
+              <span class="card__drop-label truncate">Precio final</span>
+              <span class="card__drop-value truncate">2.455,00 €</span>
+            </div>
+          </div>
+        </ng-container>
+      </app-dropdown>
+    </div>
+
+    <div class="card__action">
+      <app-button
+        size="sm"
+        type="full"
+        label="Reservar"
+        color="tertiary"
+        class="card__button"
+      >
+      </app-button>
+    </div>
+  </div>
+</div>
