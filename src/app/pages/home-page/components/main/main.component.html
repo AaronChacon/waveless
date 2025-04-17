@@ -59,7 +59,7 @@
           <app-accordion
             [title]="'Aventura'"
             [icon]="'mountains'"
-            [opened]="false"
+            [opened]="true"
           >
             <app-checkbox
               class="main__checkbox"
@@ -183,41 +183,43 @@
         </app-filter>
       </div>
       <div class="main__collection">
-        <div class="main__section">
-          <p class="main__title">Asia</p>
-
-          <div class="main__cards">
-            <app-card></app-card>
-            <app-card></app-card>
-            <app-card></app-card>
+        <ng-container *ngIf="sections$ | async as sections; else loading">
+          <div class="main__section" *ngFor="let section of sections">
+            <p class="main__title">{{ section.title }}</p>
+            <div class="main__cards">
+              <app-card
+                *ngFor="let card of section.cards; trackBy: trackCard"
+                [data]="card"
+              >
+              </app-card>
+            </div>
           </div>
-        </div>
+        </ng-container>
 
-        <div class="main__section">
-          <p class="main__title">Europa</p>
+        <ng-template #loading>
+          <div class="main__section">
+            <p class="main__title skeleton" style="width: 32%"></p>
 
-          <div class="main__cards">
-            <app-card></app-card>
-            <app-card></app-card>
-            <app-card></app-card>
-            <app-card></app-card>
-            <app-card></app-card>
-            <app-card></app-card>
+            <div class="main__cards">
+              <div class="main__card skeleton"></div>
+              <div class="main__card skeleton"></div>
+              <div class="main__card skeleton"></div>
+            </div>
           </div>
-        </div>
 
-        <!-- <ng-container *ngFor="let card of cards">
-          <app-card
-            [image]="card.image"
-            [title]="card.title"
-            [subtitle]="card.subtitle"
-            [description]="card.description"
-            [tags]="card.tags"
-            [price]="card.price"
-            [route]="card.route"
-          >
-          </app-card>
-        </ng-container> -->
+          <div class="main__section">
+            <p class="main__title skeleton" style="width: 69%"></p>
+
+            <div class="main__cards">
+              <div class="main__card skeleton"></div>
+              <div class="main__card skeleton"></div>
+              <div class="main__card skeleton"></div>
+              <div class="main__card skeleton"></div>
+              <div class="main__card skeleton"></div>
+              <div class="main__card skeleton"></div>
+            </div>
+          </div>
+        </ng-template>
       </div>
     </div>
   </div>

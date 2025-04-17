@@ -1,0 +1,40 @@
+$skeleton-color-bg: #e7e5ea; // gris claro
+$skeleton-color-wave: #dedede; // brillo
+
+.skeleton {
+  position: relative;
+  overflow: hidden;
+  color: transparent; /* oculta texto real */
+  background-color: $skeleton-color-bg;
+
+  /* “onda” */
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(
+      90deg,
+      transparent 0,
+      $skeleton-color-wave 50%,
+      transparent 100%
+    );
+    background-size: 200% 100%;
+    animation: skeleton-shimmer 1.2s infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    &::after {
+      animation: none;
+      background: $skeleton-color-bg;
+    }
+  }
+}
+
+@keyframes skeleton-shimmer {
+  0% {
+    background-position-x: -120%;
+  }
+  100% {
+    background-position-x: 120%;
+  }
+}
