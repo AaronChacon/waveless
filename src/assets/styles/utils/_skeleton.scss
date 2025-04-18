@@ -1,13 +1,12 @@
-$skeleton-color-bg: #e7e5ea; // gris claro
-$skeleton-color-wave: #e1dede; // brillo
+$skeleton-color-bg: #e7e5ea;
+$skeleton-color-wave: #e1dede;
 
 .skeleton {
   position: relative;
   overflow: hidden;
-  color: transparent; /* oculta texto real */
+  color: transparent;
   background-color: $skeleton-color-bg;
 
-  /* “onda” */
   &::after {
     content: '';
     position: absolute;
