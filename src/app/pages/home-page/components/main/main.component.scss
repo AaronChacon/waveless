@@ -189,4 +189,24 @@
     box-shadow: variable.$shadow-base-050;
     background-color: color.$color-basic-white;
   }
+
+  &__empty {
+    width: 100%;
+    height: auto;
+    min-height: 400px;
+    flex-direction: column;
+    @include utilities.flexbox-param(flex, center, center);
+
+    .main__e-title {
+      text-align: center;
+      margin-bottom: 24px;
+      @include utilities.font-details(32px, 38px, 600, color.$color-basic-800);
+    }
+
+    .main__e-subtitle {
+      margin-bottom: 0;
+      text-align: center;
+      @include utilities.font-details(20px, 28px, 400, color.$color-basic-500);
+    }
+  }
 }

@@ -1,10 +1,10 @@
-import { CardData } from './card.interface';
+import { CardData } from '../../components/ui-waveless/molecules/card/card.interface';
 
 export const MOCK_CARD: CardData = {
   imageSrc: 'assets/img/jpg/bg-1.jpg',
   location: 'Marruecos, África',
-  days: 9,
-  category: 'Viajes',
+  days: '9',
+  activity: 'Cultura',
   title: 'Descubre Bangkok con Iberojet',
   priceNote: 'Desde',
   priceAmount: 248.0,

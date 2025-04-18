@@ -4,7 +4,7 @@ import { IconComponent } from '../../atoms/icon/icon.component';
 import { ButtonComponent } from '../../atoms/button/button.component';
 import { DropdownComponent } from '../../atoms/dropdown/dropdown.component';
 import { CardData } from './card.interface';
-import { MOCK_CARD } from './card.mock';
+import { MOCK_CARD } from '../../../../core/mocks/card.mock';
 import { TagComponent } from '../../atoms/tag/tag.component';
 
 @Component({

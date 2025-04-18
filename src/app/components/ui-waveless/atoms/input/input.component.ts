@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { IconComponent } from '../icon/icon.component';
 import { IconName } from '../icon/icon.type';
 
@@ -19,4 +19,11 @@ export class InputComponent {
   @Input() iconColor = 'color-basic-800';
   @Input() disabled = false;
   @Input() error = false;
+  @Output() valueChange = new EventEmitter<string | number>();
+
+  onInput(ev: Event) {
+    const target = ev.target as HTMLInputElement;
+    this.value = target.value;
+    this.valueChange.emit(this.value);
+  }
 }

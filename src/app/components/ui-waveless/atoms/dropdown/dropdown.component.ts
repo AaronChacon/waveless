@@ -24,6 +24,8 @@ export class DropdownContentDirective {}
   imports: [CommonModule, IconComponent],
 })
 export class DropdownComponent implements AfterViewInit {
+  private rafId: number | null = null;
+
   @Input() isOpen = false;
 
   @ViewChild('triggerRef') triggerEl?: ElementRef<HTMLElement>;
@@ -36,8 +38,6 @@ export class DropdownComponent implements AfterViewInit {
       this.reposition();
     }
   }
-
-  private rafId: number | null = null;
 
   toggle(): void {
     this.isOpen = !this.isOpen;
@@ -94,7 +94,7 @@ export class DropdownComponent implements AfterViewInit {
     let left = trig.left;
     let top = trig.bottom + margin;
 
-    /* ­— desbordamiento horizontal — */
+    // horizontal overflow
     if (left + pw + margin > window.innerWidth) {
       left = window.innerWidth - pw - margin;
     }
@@ -102,9 +102,9 @@ export class DropdownComponent implements AfterViewInit {
       left = margin;
     }
 
-    /* ­— desbordamiento vertical (drop‑up) — */
+    // vertical overflow
     if (top + ph > window.innerHeight - margin) {
-      top = trig.top - ph - margin; // coloca arriba
+      top = trig.top - ph - margin;
     }
     if (top < margin) {
       top = margin;

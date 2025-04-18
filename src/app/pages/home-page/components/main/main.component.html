@@ -23,36 +23,52 @@
           [isOpen]="isMobileFilterOpen"
           (isOpenChange)="syncToggles($event)"
         >
-          <app-accordion [title]="'Destino'" [icon]="'world'" [opened]="false">
+          <app-accordion [title]="'Destino'" [icon]="'world'" [opened]="true">
+            <app-checkbox
+              class="main__checkbox"
+              [label]="'Bangkok'"
+              [info]="'New'"
+              (checkedChange)="onToggleSet('destinations', 'Bangkok', $event)"
+            ></app-checkbox>
             <app-checkbox
               class="main__checkbox"
               [label]="'Barcelona'"
-              [info]="'new'"
-              (checkedChange)="onCheckedChange($event)"
+              (checkedChange)="onToggleSet('destinations', 'Barcelona', $event)"
             ></app-checkbox>
 
             <app-checkbox
               class="main__checkbox"
-              [label]="'Madrid'"
-              [info]="'new'"
-              (checkedChange)="onCheckedChange($event)"
+              [label]="'Chiang Mai'"
+              (checkedChange)="
+                onToggleSet('destinations', 'Chiang Mai', $event)
+              "
             ></app-checkbox>
 
             <app-checkbox
               class="main__checkbox"
-              [label]="'Valencia'"
-              [info]="'new'"
-              [checked]="true"
-              (checkedChange)="onCheckedChange($event)"
+              [label]="'Paris'"
+              (checkedChange)="onToggleSet('destinations', 'París', $event)"
             ></app-checkbox>
 
             <app-checkbox
               class="main__checkbox"
-              [label]="'Alicante'"
-              [info]="'new'"
-              [checked]="true"
-              [disabled]="true"
-              (checkedChange)="onCheckedChange($event)"
+              [label]="'Viena'"
+              [info]="'New'"
+              (checkedChange)="onToggleSet('destinations', 'Viena', $event)"
+            ></app-checkbox>
+
+            <app-checkbox
+              class="main__checkbox"
+              [label]="'Roma'"
+              [disabled]="false"
+              (checkedChange)="onToggleSet('destinations', 'Roma', $event)"
+            ></app-checkbox>
+
+            <app-checkbox
+              class="main__checkbox"
+              [label]="'Amsterdam'"
+              [disabled]="false"
+              (checkedChange)="onToggleSet('destinations', 'Amsterdam', $event)"
             ></app-checkbox>
           </app-accordion>
 
@@ -63,64 +79,29 @@
           >
             <app-checkbox
               class="main__checkbox"
-              [label]="'Quads'"
-              [info]="'new'"
-              (checkedChange)="onCheckedChange($event)"
+              [label]="'Cultura'"
+              (checkedChange)="onToggleSet('activities', 'Cultura', $event)"
             ></app-checkbox>
 
             <app-checkbox
               class="main__checkbox"
-              [label]="'Parapente'"
-              [info]="'new'"
-              [checked]="true"
-              (checkedChange)="onCheckedChange($event)"
+              [label]="'Paseos'"
+              (checkedChange)="onToggleSet('activities', 'Paseos', $event)"
             ></app-checkbox>
 
             <app-checkbox
               class="main__checkbox"
-              [label]="'Rafting'"
+              [label]="'Arquitectura'"
               [info]="'new'"
-              (checkedChange)="onCheckedChange($event)"
+              (checkedChange)="
+                onToggleSet('activities', 'Arquitectura', $event)
+              "
             ></app-checkbox>
 
             <app-checkbox
               class="main__checkbox"
-              [label]="'Explora'"
-              [info]="'new'"
-              [checked]="true"
-              (checkedChange)="onCheckedChange($event)"
-            ></app-checkbox>
-
-            <app-checkbox
-              class="main__checkbox"
-              [label]="'Buceo'"
-              [info]="'new'"
-              [checked]="true"
-              (checkedChange)="onCheckedChange($event)"
-            ></app-checkbox>
-
-            <app-checkbox
-              class="main__checkbox"
-              [label]="'Paracaídas'"
-              [info]="'new'"
-              [checked]="true"
-              (checkedChange)="onCheckedChange($event)"
-            ></app-checkbox>
-
-            <app-checkbox
-              class="main__checkbox"
-              [label]="'Snowboard'"
-              [info]="'new'"
-              [checked]="true"
-              (checkedChange)="onCheckedChange($event)"
-            ></app-checkbox>
-
-            <app-checkbox
-              class="main__checkbox"
-              [label]="'Surf'"
-              [info]="'new'"
-              [checked]="true"
-              (checkedChange)="onCheckedChange($event)"
+              [label]="'Historia'"
+              (checkedChange)="onToggleSet('activities', 'Historia', $event)"
             ></app-checkbox>
 
             <p class="main__show-more">Ver 21 más</p>
@@ -133,33 +114,21 @@
           >
             <app-checkbox
               class="main__checkbox"
-              [label]="'Barcelona'"
-              [info]="'new'"
-              (checkedChange)="onCheckedChange($event)"
+              [label]="'4 dias'"
+              (checkedChange)="onToggleSet('accommodation', '4', $event)"
             ></app-checkbox>
 
             <app-checkbox
               class="main__checkbox"
-              [label]="'Madrid'"
-              [info]="'new'"
-              (checkedChange)="onCheckedChange($event)"
+              [label]="'5 dias'"
+              (checkedChange)="onToggleSet('accommodation', '5', $event)"
             ></app-checkbox>
 
             <app-checkbox
               class="main__checkbox"
-              [label]="'Valencia'"
+              [label]="'7 dias'"
               [info]="'new'"
-              [checked]="true"
-              (checkedChange)="onCheckedChange($event)"
-            ></app-checkbox>
-
-            <app-checkbox
-              class="main__checkbox"
-              [label]="'Alicante'"
-              [info]="'new'"
-              [checked]="true"
-              [disabled]="true"
-              (checkedChange)="onCheckedChange($event)"
+              (checkedChange)="onToggleSet('accommodation', '7', $event)"
             ></app-checkbox>
           </app-accordion>
 
@@ -170,6 +139,9 @@
               [iconSize]="24"
               placeholder="Minimo"
               iconColor="color-basic-800"
+              (valueChange)="
+                onPriceChange($event ? +$event : undefined, priceMax)
+              "
             ></app-input>
 
             <app-input
@@ -178,22 +150,36 @@
               [iconSize]="24"
               placeholder="Maximo"
               iconColor="color-basic-800"
+              (valueChange)="
+                onPriceChange(priceMin, $event ? +$event : undefined)
+              "
             ></app-input>
           </app-accordion>
         </app-filter>
       </div>
       <div class="main__collection">
         <ng-container *ngIf="sections$ | async as sections; else loading">
-          <div class="main__section" *ngFor="let section of sections">
-            <p class="main__title">{{ section.title }}</p>
-            <div class="main__cards">
-              <app-card
-                *ngFor="let card of section.cards; trackBy: trackCard"
-                [data]="card"
-              >
-              </app-card>
+          <ng-container *ngIf="sections.length === 0">
+            <div class="main__empty">
+              <h3 class="main__e-title">No se encontraron resultados</h3>
+              <p class="main__e-subtitle">
+                Intenta buscar con diferentes términos de busqueda
+              </p>
             </div>
-          </div>
+          </ng-container>
+
+          <ng-container *ngIf="sections.length > 0">
+            <div class="main__section" *ngFor="let section of sections">
+              <p class="main__title">{{ section.title }}</p>
+              <div class="main__cards">
+                <app-card
+                  *ngFor="let card of section.cards; trackBy: trackCard"
+                  [data]="card"
+                >
+                </app-card>
+              </div>
+            </div>
+          </ng-container>
         </ng-container>
 
         <ng-template #loading>

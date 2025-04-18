@@ -6,8 +6,8 @@ export interface PriceRow {
 export interface CardData {
   imageSrc: string;
   location: string;
-  days: number;
-  category: string;
+  days: string;
+  activity: string;
   title: string;
   priceNote: string;
   priceAmount: number;

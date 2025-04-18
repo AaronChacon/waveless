@@ -5,6 +5,7 @@ import { InputComponent } from '../../../../components/ui-waveless/atoms/input/i
 import { AccordionComponent } from '../../../../components/ui-waveless/molecules/accordion/accordion.component';
 import { CardComponent } from '../../../../components/ui-waveless/molecules/card/card.component';
 import { FilterComponent } from '../../../../components/ui-waveless/organisms/filter/filter.component';
+import { IconComponent } from '../../../../components/ui-waveless/atoms/icon/icon.component';
 
 export const MainComponentImports = [
   CommonModule,
@@ -14,4 +15,5 @@ export const MainComponentImports = [
   CheckboxComponent,
   InputComponent,
   CardComponent,
+  IconComponent,
 ];
