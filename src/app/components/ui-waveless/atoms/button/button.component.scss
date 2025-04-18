@@ -32,7 +32,8 @@
   }
 
   &--filter {
-    width: 152px;
+    width: auto;
+    min-width: 152px;
     height: 40px;
     padding: 8px 14px;
 
